@@ -45,7 +45,7 @@ namespace SuperChess
                         running = false;
                     }
                     this.Draw();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(300);
                 }
             }
 
