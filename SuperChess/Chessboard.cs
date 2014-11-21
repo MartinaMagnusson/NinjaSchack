@@ -21,8 +21,10 @@ namespace SuperChess
 
         public void StartGame()
         {
-            bool running = true;
 
+            this.Draw();
+            Console.ReadKey();
+            bool running = true;
             while (running)
             {
                 foreach (Player player in this.players)

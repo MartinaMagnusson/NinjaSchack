@@ -11,6 +11,7 @@ namespace SuperChess
     {
         static void Main(string[] args)
         {
+            
             Chessboard board = new Chessboard();
             Console.ReadKey();
         }
