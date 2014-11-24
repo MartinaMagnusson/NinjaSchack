@@ -12,7 +12,7 @@ namespace SuperChess
         {
             for (int x = 0; x <= 7; x++)
             {
-                //this.AddChessPiece(new Pawn(x, 6));
+               //this.AddChessPiece(new Pawn(x, 6));
             }
             this.AddChessPiece(new King(4,7));
             //this.AddChessPiece(new Queen(3, 7));

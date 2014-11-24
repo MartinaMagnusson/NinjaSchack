@@ -20,9 +20,9 @@ namespace SuperChess
 
         public override bool Move(bool directionUp)
         {
-            Random random = new Random();
-            this.x = random.Next(0, 8);
-            this.y = random.Next(0, 8);
+            //Random random = new Random();
+            //this.x = random.Next(0, 8);
+            //this.y = random.Next(0, 8);
             bool movePossible = false;
             if (directionUp)
             {
