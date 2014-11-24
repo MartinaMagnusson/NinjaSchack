@@ -44,7 +44,7 @@ namespace SuperChess
                     {
                         //Unable to make a move
                         //Is the game over?
-                        running = false;
+                        running = true;
                     }
                     this.Draw();
                     Thread.Sleep(300);

@@ -20,58 +20,45 @@ namespace SuperChess
 
         public override bool Move(bool directionUp)
         {
-            //Random random = new Random();
-            //this.x = random.Next(0, 8);
-            //this.y = random.Next(0, 8);
-            bool movePossible = false;
-            if (directionUp)
-            {
-                if (this.ValidateMove(this.x - 1, this.y, directionUp))
-                {
-                    this.x = this.x - 1;
-                    movePossible = true;
-                }
-                else if (this.ValidateMove(this.x, this.y - 1, directionUp))
-                {
-                    this.y = this.y - 1;
-                    movePossible = true;
-                }
-                else  if (this.ValidateMove(this.x -1 , this.y - 1, directionUp))
-                {
-                    this.y = this.y - 1;
-                    this.x = this.x - 1;
-                    movePossible = true;
-                }
-                else if (this.ValidateMove(this.x + 1, this.y, directionUp))
-                {
-                    this.x = this.x + 1;
-                    movePossible = true;
-                }
-                else if (this.ValidateMove(this.x, this.y + 1, directionUp))
-                {
-                    this.y = this.y + 1;
-                    movePossible = true;
-                }
-                else
-                {
-                    this.y = this.y + 1;
-                    this.x = this.x + 1;
-                    movePossible = true;
-                }
 
-            }
-            else
+            bool movePossible = false;
+            Random whichMove = new Random();
+
+
+            switch (whichMove.Next(1, 8))
             {
-                if (this.ValidateMove(this.x, this.y + 1, directionUp))
-                {
-                    this.y = this.y + 1;
+                case 1:
+                    ValidateMove(this.x + 1, this.y, directionUp);
                     movePossible = true;
-                }
-                else
-                {
-                    this.y = this.y - 1;
+                    break;
+                    case 2:
+                    ValidateMove(this.x, this.y + 1, directionUp);
                     movePossible = true;
-                }
+                    break;
+                    case 3:
+                    ValidateMove(this.x - 1, this.y, directionUp);
+                    movePossible = true;
+                    break;
+                case 4:
+                    ValidateMove(this.x, this.y - 1, directionUp);
+                    movePossible = true;
+                    break;
+                case 5:
+                    ValidateMove(this.x + 1, this.y + 1, directionUp);
+                    movePossible = true;
+                    break;
+                case 6:
+                    ValidateMove(this.x - 1, this.y - 1, directionUp);
+                    movePossible = true;
+                    break;
+                case 7:
+                    ValidateMove(this.x + 1, this.y - 1, directionUp);
+                    movePossible = true;
+                    break;
+                case 8:
+                    ValidateMove(this.x - 1, this.y + 1, directionUp);
+                    movePossible = true;
+                    break;
 
             }
 
@@ -86,7 +73,7 @@ namespace SuperChess
             if (directionUp && (y < this.y && y >= 0) && y <= 7 && (x < this.x && x >= 0) && x <= 7)
                 move = true;
 
-            if (!directionUp && (y > this.y && y <=7) && y >= 0 && (x < this.x && x >= 0) && x <= 7)
+            if (!directionUp && (y > this.y && y <= 7) && y >= 0 && (x < this.x && x >= 0) && x <= 7)
                 move = true;
 
             return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
