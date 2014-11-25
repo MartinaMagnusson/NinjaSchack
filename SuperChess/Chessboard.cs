@@ -13,7 +13,6 @@ namespace SuperChess
 
         public Chessboard() //sätter ut alla piece
         {
-           
             this.players.Add(new WhitePlayer());
             this.players.Add(new BlackPlayer());
             this.StartGame();
@@ -21,14 +20,16 @@ namespace SuperChess
 
         public void StartGame()
         {
-
+            Random random = new Random();
             this.Draw();
             Console.ReadKey();
             bool running = true;
             while (running)
             {
-                foreach (Player player in this.players)
-                {
+                
+               foreach (Player player in this.players)
+               {
+                
                     ChessPiece chessPiece = player.Move();
                     if (chessPiece != null)
                     {
@@ -37,8 +38,9 @@ namespace SuperChess
                             if (opponentPlayer != player)
                             {
                                 opponentPlayer.Kill(chessPiece.x, chessPiece.y);
+                                
                             }
-                        }
+                          }
                     }
                     else
                     {

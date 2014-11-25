@@ -16,13 +16,13 @@ namespace SuperChess
                 //this.AddChessPiece(new Pawn(x, 1));
             }
             this.AddChessPiece(new King(4, 0));
-            //this.AddChessPiece(new Queen(3, 0));
-            //this.AddChessPiece(new Bishop(2, 0));
-            //this.AddChessPiece(new Bishop(5, 0));
-            //this.AddChessPiece(new Knight(1, 0));
-            //this.AddChessPiece(new Knight(6, 0));
-            //this.AddChessPiece(new Rook(0, 0));
-            //this.AddChessPiece(new Rook(7, 0));
+            this.AddChessPiece(new Queen(3, 0));
+            this.AddChessPiece(new Bishop(2, 0));
+            this.AddChessPiece(new Bishop(5, 0));
+            this.AddChessPiece(new Knight(1, 0));
+            this.AddChessPiece(new Knight(6, 0));
+            this.AddChessPiece(new Rook(0, 0));
+            this.AddChessPiece(new Rook(7, 0));
 
         }
 

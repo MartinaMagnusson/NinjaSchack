@@ -18,53 +18,59 @@ namespace SuperChess
 
         public override bool Move(bool directionUp)
         {
+
             bool movePossible = false;
-            if (directionUp)
-            {
-                if (this.ValidateMove(this.x, this.y - 1, directionUp))
-                {
-                    this.y = this.y - 1;
-                    movePossible = true;
-                }
+            Random whichMove = new Random();
 
-            }
-            else
+            while (movePossible == false)
             {
-                if (this.ValidateMove(this.x, this.y + 1, directionUp))
+                var step = whichMove.Next(1, 8);
+                switch (whichMove.Next(1, 4))
                 {
-                    this.y = this.y + 1;
-                    movePossible = true;
-                }
-
+                    case 1:
+                        if (this.ValidateMove(this.x + step, this.y))
+                        {
+                            this.x = this.x + step;
+                            movePossible = true;
+                        }
+                        break;
+                    case 2:
+                        if (this.ValidateMove(this.x, this.y + step))
+                        {
+                            this.y = this.y + step;
+                            movePossible = true;
+                        }
+                        break;
+                    case 3:
+                        if (this.ValidateMove(this.x - step, this.y))
+                        {
+                            this.x = this.x - step;
+                            movePossible = true;
+                        }
+                        break;
+                    case 4:
+                        if (this.ValidateMove(this.x, this.y - step))
+                        {
+                            this.y = this.y - step;
+                            movePossible = true;
+                        }
+                        break;
+                 
+                  }
             }
 
             return movePossible; //if we are unable to make a move return false
         }
 
-        public override bool ValidateMove(int x, int y, bool directionUp)
+        public override bool ValidateMove(int x, int y)
         {
 
             bool move = false;
-
-            if (directionUp && (y < this.y && y >= 0))
-                move = true;
-
-            if (!directionUp && (y > this.y && y < 8))
-                move = true;
-
-            ////logik för vita                                      //Skriv om skiten (x och y)
-            //if (directionUp && (x >= this.x || x < this.x - 1))
-            //    move = false;
-            //if (directionUp && (y != this.y))
-            //    move = false;
-
-            ////Logik för svarta
-            //if (!directionUp && (x <= this.x || x > this.x + 1))
-            //    move = false;
-            //if (!directionUp && (y != this.y))
-            //    move = false;
+            if (y < 8 && y >= 0 && x < 8 && x >= 0)
+            { move = true; }
 
             return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
+
         }
     }
 }

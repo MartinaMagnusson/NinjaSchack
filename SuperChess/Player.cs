@@ -44,10 +44,16 @@ namespace SuperChess
             {
                 this.chessPieces.Remove(chessPiece);
             }
-
-
-
+            
         }
+
+        public int RandomChessPiece(List<ChessPiece> listOfPieces)
+        {
+            Random random = new Random();
+            int randomPiece = random.Next(1, chessPieces.Count);
+            return randomPiece;
+        }
+        
     }
  
 }

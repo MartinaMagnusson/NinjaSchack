@@ -25,7 +25,7 @@
 //            Random whichMove = new Random();
 //            //whichMove.Next(1, 8);
 
-
+            
 //            if (directionUp || !directionUp)
 //            {
 //                    switch (whichMove.Next(1, 8))
@@ -60,15 +60,12 @@
 //                            break;
 //                    }
 //                }
-//            }
-           
-        
+            
 //            return movePossible; //if we are unable to make a move return false
 //        }
 
 //        public override bool ValidateMove(int x, int y, bool directionUp)
 //        {
-
 //            bool move = false;
 
 //            if (directionUp && (y < this.y && y >= 0) && y <= 7 && (x < this.x && x >= 0) && x <= 7)
