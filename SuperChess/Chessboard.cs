@@ -9,12 +9,12 @@ namespace SuperChess
 {
     class Chessboard
     {
-        List<Player> players = new List<Player>();
+        List<Player> players;
         List<ChessPiece> allChessPieces = new List<ChessPiece>();
         public Chessboard() //sätter ut alla piece
         {
-            
-           
+
+            players = new List<Player>();
             for (int x = 0; x <= 7; x++)
             {
                allChessPieces.Add(new Pawn(x, 6, "White"));
@@ -46,13 +46,12 @@ namespace SuperChess
 
         public void StartGame()
         {
-            Random random = new Random();
-          //  Player randomPlayer = new Player();
             this.Draw();
             Console.ReadKey();
             bool running = true;
             while (running)
             {
+                players[0].UpdateMyList(allChessPieces);
                 ChessPiece randomWhitePiece = players[0].chessPieces[new Random().Next(0, players[0].chessPieces.Count)];
                 if (randomWhitePiece != null)
                 {
@@ -78,6 +77,7 @@ namespace SuperChess
                 this.Draw();
                 Thread.Sleep(300);
 
+                players[1].UpdateMyList(allChessPieces);
                 ChessPiece randomBlackPiece = players[1].chessPieces[new Random().Next(0, players[1].chessPieces.Count)];
                 if (randomBlackPiece != null)
                 {
@@ -95,40 +95,8 @@ namespace SuperChess
                     randomBlackPiece.Move();
                 }
 
-
                 this.Draw();
                 Thread.Sleep(300);
-
-
-
-
-
-
-                //for (int i = 0; i < randomPlayer.chessPieces.Count; i++)
-                //{
-                //    int randomChess = random.Next(i);
-                //    ChessPiece chessPiece = randomPlayer.Move();
-                //    if (chessPiece != null)
-                //    {
-                //        foreach (Player opponentPlayer in players)
-                //        {
-                //            if (opponentPlayer != randomChess)
-                //            {
-                //                opponentPlayer.Kill(chessPiece.x, chessPiece.y);
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-                //        //Unable to make a move
-                //        //Is the game over?
-                //        running = true;
-                //    }
-                //    this.Draw();
-                //    Thread.Sleep(300);
-                //}
-                // foreach (Player player in this.players)
-                //{ }
             }
 
             Console.WriteLine("Game over!");
@@ -177,48 +145,7 @@ namespace SuperChess
         //    {
         //        Console.WriteLine("Vit spelare slog ut " + targetPiece.GetChessPieceType());
         //    }
-        //    Thread.Sleep(1000);
-
-
-        //}
-        //public void MoveBlackPiece(int x, int y, int xTarget, int yTarget)//vitas drag
-        //{
-        //    ChessPiece piece = this.board[x, y];
-        //    ChessPiece targetPiece = this.board[xTarget, yTarget];
-
-        //    if (piece == null)//fel som kan uppstå för vita
-        //    {
-        //      //  Console.WriteLine("Det finns ingen svart spelare på denna position");
-        //        return;
-        //    }
-        //    if (piece.IsChessPieceWhite())
-        //    {
-        //     //   Console.WriteLine("Det går inte att flytta en vit pjäs");
-        //        return;
-        //    }
-        //    if (!piece.ValidateMove(x, y, xTarget, yTarget))
-        //    {
-        //       // Console.WriteLine("Ogiltligt drag!");
-        //        return;
-        //    }
-        //    if (targetPiece != null)
-        //    {
-        //        if (targetPiece.IsChessPieceBlack())
-        //        {
-        //           // Console.WriteLine("Du kan inte ta din egna pjäs");
-        //            return;
-        //        }
-        //    }
-
-        //    this.board[x, y] = null; //När allt går rätt
-        //    this.board[xTarget, yTarget] = piece;
-        //    this.Draw();
-        //    Console.WriteLine("{0},{1} till {2},{3}", x, y, xTarget, yTarget);
-        //    if (targetPiece != null)
-        //    {
-        //       Console.WriteLine("Svart spelare slog ut vit " + targetPiece.GetChessPieceType());
-        //    }
-        //    Thread.Sleep(1000);
+        //    Thread.Sleep(1000);    
         //}
 
 
@@ -227,11 +154,8 @@ namespace SuperChess
             Console.Clear();
             for (int y = 0; y < 8; y++)
             {
-                //Console.Write("|");
                 for (int x = 0; x < 8; x++)
                 {
-                    // foreach (Player player in this.players)
-                    // {
                     ChessPiece chessPiece = GetChessPieceAt(x, y);
                     if (chessPiece != null && chessPiece.Color == "White")
                     {
@@ -245,8 +169,6 @@ namespace SuperChess
                     {
                         Console.Write("[  ]");
                     }
-                    //}
-                    //Console.Write("|");
                 }
                 Console.WriteLine("");
             }

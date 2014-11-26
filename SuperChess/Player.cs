@@ -10,19 +10,13 @@ namespace SuperChess
     {
         public List<ChessPiece> chessPieces;
 
-        public Player(List<ChessPiece> chessPieces)
+        public Player()
         {
-            this.chessPieces = chessPieces;
+            chessPieces = new List<ChessPiece>();
         }
 
-        //public void AddChessPiece(ChessPiece chessPiece)
-        //{
-        //    this.chessPieces.Add(chessPiece);
-        //}
-
-        public List<ChessPiece> GetMyPieces()
+        public virtual void UpdateMyList(List<ChessPiece> chessPieces)
         {
-
         }
         public virtual string GetDescription()
         {
@@ -38,11 +32,6 @@ namespace SuperChess
                     return chessPiece;
                 }
             }
-            return null;
-        }
-
-        public virtual ChessPiece Move()
-        {
             return null;
         }
 
@@ -63,7 +52,5 @@ namespace SuperChess
             int randomPiece = random.Next(1, chessPieces.Count);
             return randomPiece;
         }
-        
-    }
- 
+    } 
 }

@@ -9,22 +9,21 @@ namespace SuperChess
 {
     class BlackPlayer : Player
     {
+      //  public List<ChessPiece> chessPieces;
         public BlackPlayer (List<ChessPiece> chessPieces)
-            : base(chessPieces)
         {
-            //for (int x = 0; x <= 7; x++)
-            //{
-            //    this.AddChessPiece(new Pawn(x, 1, "Black"));
-            //}
-            //this.AddChessPiece(new King(4, 0, "Black"));
-            //this.AddChessPiece(new Queen(3, 0, "Black"));
-            //this.AddChessPiece(new Bishop(2, 0, "Black"));
-            //this.AddChessPiece(new Bishop(5, 0, "Black"));
-            //this.AddChessPiece(new Knight(1, 0, "Black"));
-            //this.AddChessPiece(new Knight(6, 0, "Black"));
-            //this.AddChessPiece(new Rook(0, 0, "Black"));
-            //this.AddChessPiece(new Rook(7, 0, "Black"));
+            UpdateMyList(chessPieces);
 
+        }
+        public override void UpdateMyList(List<ChessPiece> chessPieces)
+        {
+            foreach (var piece in chessPieces)
+            {
+                if (piece.Color == "Black")
+                {
+                    this.chessPieces.Add(piece);
+                }
+            }
         }
 
         public override string GetDescription()
@@ -32,19 +31,19 @@ namespace SuperChess
             return "B";
         }
 
-        public override ChessPiece Move()
-        {
+        //public override ChessPiece Move()
+        //{
 
-            //alternativ metod för att testa drag
-            foreach (ChessPiece chessPiece in this.chessPieces)
-            {
-                if (chessPiece.Move(false))
-                {
-                    return chessPiece;
-                }
-            }
+        //    //alternativ metod för att testa drag
+        //    foreach (ChessPiece chessPiece in this.chessPieces)
+        //    {
+        //        if (chessPiece.Move(false))
+        //        {
+        //            return chessPiece;
+        //        }
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
     }
 }
