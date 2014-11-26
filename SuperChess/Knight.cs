@@ -20,17 +20,7 @@ namespace SuperChess
         {
 
             bool movePossible = false;
-<<<<<<< HEAD
-            if (directionUp )
-            {
-                if (this.ValidateMove(this.x, this.y - 1, directionUp))
-                {
-                    this.y = this.y - 1;
-                    movePossible = true;
-                }
-=======
             Random whichMove = new Random();
->>>>>>> 75cb5b979ecae31104d03a8a4ca61b349adbb711
 
             while (movePossible == false)
             {
