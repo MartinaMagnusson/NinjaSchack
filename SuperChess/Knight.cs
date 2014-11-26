@@ -8,7 +8,7 @@ namespace SuperChess
 {
     class Knight : ChessPiece
     {
-        public Knight(int x, int y) : base(x, y)
+        public Knight(int x, int y, string color) : base(x, y, color)
         {
         }
         public override string GetChessPieceDescription() //Piece blir en bonde
@@ -16,7 +16,7 @@ namespace SuperChess
             return "H";
         }
 
-        public override bool Move(bool directionUp)
+        public override bool Move()
         {
 
             bool movePossible = false;

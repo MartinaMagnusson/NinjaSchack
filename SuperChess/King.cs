@@ -8,8 +8,8 @@ namespace SuperChess
 {
     class King : ChessPiece
     {
-        public King(int x, int y)
-            : base(x, y)
+        public King(int x, int y, string color)
+            : base(x, y, color)
         {
 
         }
@@ -18,7 +18,7 @@ namespace SuperChess
             return "K";
         }
 
-        public override bool Move(bool directionUp)
+        public override bool Move()
         {
 
             bool movePossible = false;

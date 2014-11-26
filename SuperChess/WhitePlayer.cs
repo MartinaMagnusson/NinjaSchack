@@ -8,20 +8,21 @@ namespace SuperChess
 {
     class WhitePlayer : Player
     {
-        public WhitePlayer()
+        public WhitePlayer(List<ChessPiece> chessPieces)
+            : base(chessPieces)
         {
-            for (int x = 0; x <= 7; x++)
-            {
-               //this.AddChessPiece(new Pawn(x, 6));
-            }
-            this.AddChessPiece(new King(4,7));
-            this.AddChessPiece(new Queen(3, 7));
-            this.AddChessPiece(new Bishop(2, 7));
-            this.AddChessPiece(new Bishop(5, 7));
-            this.AddChessPiece(new Knight(1, 7));
-            this.AddChessPiece(new Knight(6, 7));
-            this.AddChessPiece(new Rook(0, 7));
-            this.AddChessPiece(new Rook(7, 7));
+            //for (int x = 0; x <= 7; x++)
+            //{
+            //   this.AddChessPiece(new Pawn(x, 6, "White"));
+            //}
+            //this.AddChessPiece(new King(4, 7, "White"));
+            //this.AddChessPiece(new Queen(3, 7, "White"));
+            //this.AddChessPiece(new Bishop(2, 7, "White"));
+            //this.AddChessPiece(new Bishop(5, 7, "White"));
+            //this.AddChessPiece(new Knight(1, 7, "White"));
+            //this.AddChessPiece(new Knight(6, 7, "White"));
+            //this.AddChessPiece(new Rook(0, 7, "White"));
+            //this.AddChessPiece(new Rook(7, 7, "White"));
         }
 
         public override string GetDescription()
@@ -33,13 +34,14 @@ namespace SuperChess
         {
 
             //alternativ metod för att testa drag
-            foreach (ChessPiece chessPiece in this.chessPieces)
-            {
-                if (chessPiece.Move(true))
-                {
-                    return chessPiece;
-                }                
-            }
+        //    ChessPiece randomWhitePiece = players[0].chessPieces[new Random().Next(0, players[0].chessPieces.Count)];
+            //foreach (ChessPiece chessPiece in this.chessPieces)
+            //{
+            //    if (chessPiece.Move(true))
+            //    {
+            //        return chessPiece;
+            //    }                
+            //}
 
             return null;
         }

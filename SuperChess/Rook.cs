@@ -8,7 +8,8 @@ namespace SuperChess
 {
     class Rook : ChessPiece
     {
-        public Rook(int x, int y) : base(x, y)
+        public Rook(int x, int y, string color)
+            : base(x, y, color)
         {
         }
         public override string GetChessPieceDescription() //Piece blir en bonde
@@ -16,7 +17,7 @@ namespace SuperChess
             return "R";
         }
 
-        public override bool Move(bool directionUp)
+        public override bool Move()
         {
 
             bool movePossible = false;

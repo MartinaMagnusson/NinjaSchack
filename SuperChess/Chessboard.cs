@@ -9,48 +9,126 @@ namespace SuperChess
 {
     class Chessboard
     {
-        List<Player> players = new List<Player>(); 
-
+        List<Player> players = new List<Player>();
+        List<ChessPiece> allChessPieces = new List<ChessPiece>();
         public Chessboard() //sätter ut alla piece
         {
-            this.players.Add(new WhitePlayer());
-            this.players.Add(new BlackPlayer());
+            
+           
+            for (int x = 0; x <= 7; x++)
+            {
+               allChessPieces.Add(new Pawn(x, 6, "White"));
+            }
+            this.allChessPieces.Add(new King(4, 7, "White"));
+            this.allChessPieces.Add(new Queen(3, 7, "White"));
+            this.allChessPieces.Add(new Bishop(2, 7, "White"));
+            this.allChessPieces.Add(new Bishop(5, 7, "White"));
+            this.allChessPieces.Add(new Knight(1, 7, "White"));
+            this.allChessPieces.Add(new Knight(6, 7, "White"));
+            this.allChessPieces.Add(new Rook(0, 7, "White"));
+            this.allChessPieces.Add(new Rook(7, 7, "White"));
+            for (int x = 0; x <= 7; x++)
+            {
+                this.allChessPieces.Add(new Pawn(x, 1, "Black"));
+            }
+            this.allChessPieces.Add(new King(4, 0, "Black"));
+            this.allChessPieces.Add(new Queen(3, 0, "Black"));
+            this.allChessPieces.Add(new Bishop(2, 0, "Black"));
+            this.allChessPieces.Add(new Bishop(5, 0, "Black"));
+            this.allChessPieces.Add(new Knight(1, 0, "Black"));
+            this.allChessPieces.Add(new Knight(6, 0, "Black"));
+            this.allChessPieces.Add(new Rook(0, 0, "Black"));
+            this.allChessPieces.Add(new Rook(7, 0, "Black"));
+            this.players.Add(new WhitePlayer(allChessPieces));
+            this.players.Add(new BlackPlayer(allChessPieces));
             this.StartGame();
         }
 
         public void StartGame()
         {
             Random random = new Random();
+          //  Player randomPlayer = new Player();
             this.Draw();
             Console.ReadKey();
             bool running = true;
             while (running)
             {
-                
-               foreach (Player player in this.players)
-               {
-                
-                    ChessPiece chessPiece = player.Move();
-                    if (chessPiece != null)
+                ChessPiece randomWhitePiece = players[0].chessPieces[new Random().Next(0, players[0].chessPieces.Count)];
+                if (randomWhitePiece != null)
+                {
+                    if (players[1] != players[0])
                     {
-                        foreach (Player opponentPlayer in players)
-                        {
-                            if (opponentPlayer != player)
-                            {
-                                opponentPlayer.Kill(chessPiece.x, chessPiece.y);
-                                
-                            }
-                          }
+                        players[1].Kill(randomWhitePiece.x, randomWhitePiece.y, allChessPieces);
                     }
-                    else
-                    {
-                        //Unable to make a move
-                        //Is the game over?
-                        running = true;
-                    }
-                    this.Draw();
-                    Thread.Sleep(300);
                 }
+                else
+                {
+                    //Unable to make a move
+                    //Is the game over?
+                    running = true;
+                }
+                if (randomWhitePiece.GetChessPieceDescription() == "P")
+                {
+                    randomWhitePiece.Move(true);
+                }
+                else
+                {
+                    randomWhitePiece.Move();
+                }
+                this.Draw();
+                Thread.Sleep(300);
+
+                ChessPiece randomBlackPiece = players[1].chessPieces[new Random().Next(0, players[1].chessPieces.Count)];
+                if (randomBlackPiece != null)
+                {
+                    if (players[0] != players[1])
+                    {
+                        players[0].Kill(randomBlackPiece.x, randomBlackPiece.y, allChessPieces);
+                    }
+                }
+                if (randomBlackPiece.GetChessPieceDescription() == "P")
+                {
+                    randomBlackPiece.Move(false);
+                }
+                else
+                {
+                    randomBlackPiece.Move();
+                }
+
+
+                this.Draw();
+                Thread.Sleep(300);
+
+
+
+
+
+
+                //for (int i = 0; i < randomPlayer.chessPieces.Count; i++)
+                //{
+                //    int randomChess = random.Next(i);
+                //    ChessPiece chessPiece = randomPlayer.Move();
+                //    if (chessPiece != null)
+                //    {
+                //        foreach (Player opponentPlayer in players)
+                //        {
+                //            if (opponentPlayer != randomChess)
+                //            {
+                //                opponentPlayer.Kill(chessPiece.x, chessPiece.y);
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        //Unable to make a move
+                //        //Is the game over?
+                //        running = true;
+                //    }
+                //    this.Draw();
+                //    Thread.Sleep(300);
+                //}
+                // foreach (Player player in this.players)
+                //{ }
             }
 
             Console.WriteLine("Game over!");
@@ -131,7 +209,7 @@ namespace SuperChess
         //            return;
         //        }
         //    }
-            
+
         //    this.board[x, y] = null; //När allt går rätt
         //    this.board[xTarget, yTarget] = piece;
         //    this.Draw();
@@ -142,33 +220,48 @@ namespace SuperChess
         //    }
         //    Thread.Sleep(1000);
         //}
-    
+
 
         public void Draw()//ritar upp spelbrädan 
         {
             Console.Clear();
             for (int y = 0; y < 8; y++)
             {
-                Console.Write("|");
+                //Console.Write("|");
                 for (int x = 0; x < 8; x++)
                 {
-                    foreach (Player player in this.players)
+                    // foreach (Player player in this.players)
+                    // {
+                    ChessPiece chessPiece = GetChessPieceAt(x, y);
+                    if (chessPiece != null && chessPiece.Color == "White")
                     {
-                        ChessPiece chessPiece = player.GetChessPieceAt(x, y);
-                        if (chessPiece != null)
-                        {
-                            Console.Write(player.GetDescription() + chessPiece.GetChessPieceDescription());
-                        }
-                        else
-                        {
-                            Console.Write("  ");
-                        }
+                        Console.Write("[" + chessPiece.Color[0] + chessPiece.GetChessPieceDescription() + "]");
                     }
-                    Console.Write("|");
+                    else if (chessPiece != null && chessPiece.Color == "Black")
+                    {
+                        Console.Write("[" + chessPiece.Color[0] + chessPiece.GetChessPieceDescription() + "]");
+                    }
+                    else
+                    {
+                        Console.Write("[  ]");
+                    }
+                    //}
+                    //Console.Write("|");
                 }
                 Console.WriteLine("");
             }
         }
-      
+        private ChessPiece GetChessPieceAt(int x, int y)
+        {
+            foreach (var piece in allChessPieces)
+            {
+                if (piece.x == x && piece.y == y)
+                {
+                    return piece;
+                }
+            }
+            return null;
+        }
+
     }
 }

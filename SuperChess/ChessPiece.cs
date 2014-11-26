@@ -10,11 +10,13 @@ namespace SuperChess
     {
         public int x;
         public int y;
+        public string Color { get; set; }
 
-        public ChessPiece(int x, int y)
+        public ChessPiece(int x, int y, string color)
         {
             this.x = x;
             this.y = y;
+            this.Color = color;
         }
 
         public virtual string GetChessPieceDescription()
@@ -23,6 +25,10 @@ namespace SuperChess
         }
 
         public virtual bool Move(bool directionUp)
+        {
+            return true;
+        }
+        public virtual bool Move()
         {
             return true;
         }

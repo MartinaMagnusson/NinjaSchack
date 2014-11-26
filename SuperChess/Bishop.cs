@@ -8,7 +8,7 @@ namespace SuperChess
 {
     class Bishop :ChessPiece
     {
-        public Bishop(int x, int y) : base(x, y)
+        public Bishop(int x, int y, string color) : base(x, y, color)
         {
         }
         public override string GetChessPieceDescription() //Piece blir en bonde

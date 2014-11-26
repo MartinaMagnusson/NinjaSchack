@@ -8,7 +8,7 @@ namespace SuperChess
 {
     class Pawn : ChessPiece
     {
-        public Pawn(int x, int y) :base(x,y)
+        public Pawn(int x, int y, string color) :base(x,y,color)
         {
         }
 

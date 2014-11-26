@@ -9,20 +9,21 @@ namespace SuperChess
 {
     class BlackPlayer : Player
     {
-        public BlackPlayer ()
+        public BlackPlayer (List<ChessPiece> chessPieces)
+            : base(chessPieces)
         {
-            for (int x = 0; x <= 7; x++)
-            {
-                //this.AddChessPiece(new Pawn(x, 1));
-            }
-            this.AddChessPiece(new King(4, 0));
-            this.AddChessPiece(new Queen(3, 0));
-            this.AddChessPiece(new Bishop(2, 0));
-            this.AddChessPiece(new Bishop(5, 0));
-            this.AddChessPiece(new Knight(1, 0));
-            this.AddChessPiece(new Knight(6, 0));
-            this.AddChessPiece(new Rook(0, 0));
-            this.AddChessPiece(new Rook(7, 0));
+            //for (int x = 0; x <= 7; x++)
+            //{
+            //    this.AddChessPiece(new Pawn(x, 1, "Black"));
+            //}
+            //this.AddChessPiece(new King(4, 0, "Black"));
+            //this.AddChessPiece(new Queen(3, 0, "Black"));
+            //this.AddChessPiece(new Bishop(2, 0, "Black"));
+            //this.AddChessPiece(new Bishop(5, 0, "Black"));
+            //this.AddChessPiece(new Knight(1, 0, "Black"));
+            //this.AddChessPiece(new Knight(6, 0, "Black"));
+            //this.AddChessPiece(new Rook(0, 0, "Black"));
+            //this.AddChessPiece(new Rook(7, 0, "Black"));
 
         }
 

@@ -8,13 +8,22 @@ namespace SuperChess
 {
     class Player
     {
-        protected List<ChessPiece> chessPieces = new List<ChessPiece>();
+        public List<ChessPiece> chessPieces;
 
-        public void AddChessPiece(ChessPiece chessPiece)
+        public Player(List<ChessPiece> chessPieces)
         {
-            this.chessPieces.Add(chessPiece);
+            this.chessPieces = chessPieces;
         }
 
+        //public void AddChessPiece(ChessPiece chessPiece)
+        //{
+        //    this.chessPieces.Add(chessPiece);
+        //}
+
+        public List<ChessPiece> GetMyPieces()
+        {
+
+        }
         public virtual string GetDescription()
         {
             return "U";
@@ -37,12 +46,13 @@ namespace SuperChess
             return null;
         }
 
-        public void Kill(int x, int y)
+        public void Kill(int x, int y, List<ChessPiece> chessPieces)
         {
             ChessPiece chessPiece = this.GetChessPieceAt(x, y);
             if (chessPiece != null)
             {
-                this.chessPieces.Remove(chessPiece);
+                chessPieces.Remove(chessPiece);
+
             }
             
         }
