@@ -14,3 +14,9 @@ D:\Git Hub\NinjaSchack\SuperChess\obj\Debug\SuperChess.exe
 D:\Git Hub\NinjaSchack\SuperChess\obj\Debug\SuperChess.pdb
 D:\Git Hub\NinjaSchack\SuperChess\bin\Debug\SuperChess.exe
 D:\Git Hub\NinjaSchack\SuperChess\bin\Debug\SuperChess.pdb
+D:\GitHub\NinjaSchack\SuperChess\bin\Debug\SuperChess.exe.config
+D:\GitHub\NinjaSchack\SuperChess\obj\Debug\SuperChess.exe
+D:\GitHub\NinjaSchack\SuperChess\obj\Debug\SuperChess.pdb
+D:\GitHub\NinjaSchack\SuperChess\bin\Debug\SuperChess.exe
+D:\GitHub\NinjaSchack\SuperChess\bin\Debug\SuperChess.pdb
+D:\GitHub\NinjaSchack\SuperChess\obj\Debug\SuperChess.csprojResolveAssemblyReference.cache

@@ -19,7 +19,7 @@ namespace SuperChess
         public override bool Move(bool directionUp)
         {
             bool movePossible = false;
-            if (directionUp)
+            if (directionUp )
             {
                 if (this.ValidateMove(this.x, this.y - 1, directionUp))
                 {
