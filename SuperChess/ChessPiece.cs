@@ -26,10 +26,21 @@ namespace SuperChess
         {
             return true;
         }
+        public virtual bool FalseMove(bool falseMove)
+        {
+            return false;
+        }
+
 
         public virtual bool ValidateMove(int x, int y, bool directionUp)
         {
             return true;
         }
+        public virtual bool ValidateMove(int x, int y)
+        {
+            return true;
+        }
+
+
     }
 }

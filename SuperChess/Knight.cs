@@ -18,7 +18,9 @@ namespace SuperChess
 
         public override bool Move(bool directionUp)
         {
+
             bool movePossible = false;
+<<<<<<< HEAD
             if (directionUp )
             {
                 if (this.ValidateMove(this.x, this.y - 1, directionUp))
@@ -26,45 +28,93 @@ namespace SuperChess
                     this.y = this.y - 1;
                     movePossible = true;
                 }
+=======
+            Random whichMove = new Random();
+>>>>>>> 75cb5b979ecae31104d03a8a4ca61b349adbb711
 
-            }
-            else
+            while (movePossible == false)
             {
-                if (this.ValidateMove(this.x, this.y + 1, directionUp))
+                switch (whichMove.Next(1, 8))
                 {
-                    this.y = this.y + 1;
-                    movePossible = true;
+                    case 1:
+                        if (this.ValidateMove(this.x + 1, this.y + 2))
+                        {
+                            this.x = this.x + 1;
+                            this.y = this.y + 2;
+                            movePossible = true;
+                        }
+                        break;
+                    case 2:
+                        if (this.ValidateMove(this.x + 1, this.y - 2))
+                        {
+                            this.x = this.x + 1;
+                            this.y = this.y - 2;
+                            movePossible = true;
+                        }
+                        break;
+                    case 3:
+                        if (this.ValidateMove(this.x - 1, this.y + 2))
+                        {
+                            this.x = this.x - 1;
+                            this.y = this.y + 2;
+                            movePossible = true;
+                        }
+                        break;
+                    case 4:
+                        if (this.ValidateMove(this.x - 1, this.y - 2))
+                        {
+                            this.x = this.x - 1;
+                            this.y = this.y - 2;
+                            movePossible = true;
+                        }
+                        break;
+                    case 5:
+                        if (this.ValidateMove(this.x + 2, this.y + 1))
+                        {
+                            this.x = this.x + 2;
+                            this.y = this.y + 1;
+                            movePossible = true;
+                        }
+                        break;
+                    case 6:
+                        if (this.ValidateMove(this.x - 2, this.y - 1))
+                        {
+                            this.x = this.x - 2;
+                            this.y = this.y - 1;
+                            movePossible = true;
+                        }
+                        break;
+                    case 7:
+                        if (this.ValidateMove(this.x + 2, this.y - 1))
+                        {
+                            this.x = this.x + 2;
+                            this.y = this.y - 1;
+                            movePossible = true;
+                        }
+                        break;
+                    case 8:
+                        if (this.ValidateMove(this.x - 2, this.y + 1))
+                        {
+                            this.x = this.x - 2;
+                            this.y = this.y + 1;
+                            movePossible = true;
+                        }
+                        break;
                 }
-
             }
 
             return movePossible; //if we are unable to make a move return false
         }
 
-        public override bool ValidateMove(int x, int y, bool directionUp)
+        public override bool ValidateMove(int x, int y)
         {
 
             bool move = false;
-
-            if (directionUp && (y < this.y && y >= 0))
-                move = true;
-
-            if (!directionUp && (y > this.y && y < 8))
-                move = true;
-
-            ////logik för vita                                      //Skriv om skiten (x och y)
-            //if (directionUp && (x >= this.x || x < this.x - 1))
-            //    move = false;
-            //if (directionUp && (y != this.y))
-            //    move = false;
-
-            ////Logik för svarta
-            //if (!directionUp && (x <= this.x || x > this.x + 1))
-            //    move = false;
-            //if (!directionUp && (y != this.y))
-            //    move = false;
+            if (y < 8 && y >= 0 && x < 8 && x >= 0)
+            { move = true; }
 
             return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
+            //TODO:Få rät på denna skiten
         }
     }
 }

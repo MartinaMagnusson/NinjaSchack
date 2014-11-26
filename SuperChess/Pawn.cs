@@ -53,19 +53,7 @@ namespace SuperChess
             if (!directionUp && (y > this.y && y < 8))
                 move = true;
 
-            ////logik för vita                                      //Skriv om skiten (x och y)
-            //if (directionUp && (x >= this.x || x < this.x - 1))
-            //    move = false;
-            //if (directionUp && (y != this.y))
-            //    move = false;
-
-            ////Logik för svarta
-            //if (!directionUp && (x <= this.x || x > this.x + 1))
-            //    move = false;
-            //if (!directionUp && (y != this.y))
-            //    move = false;
-
-            return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
+     return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
         }
 
     }
