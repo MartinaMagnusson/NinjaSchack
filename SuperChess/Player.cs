@@ -41,9 +41,7 @@ namespace SuperChess
             if (chessPiece != null)
             {
                 chessPieces.Remove(chessPiece);
-
             }
-            
         }
 
         public int RandomChessPiece(List<ChessPiece> listOfPieces)

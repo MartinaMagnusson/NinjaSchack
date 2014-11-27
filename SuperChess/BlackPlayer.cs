@@ -9,11 +9,9 @@ namespace SuperChess
 {
     class BlackPlayer : Player
     {
-      //  public List<ChessPiece> chessPieces;
         public BlackPlayer (List<ChessPiece> chessPieces)
         {
             UpdateMyList(chessPieces);
-
         }
         public override void UpdateMyList(List<ChessPiece> chessPieces)
         {
@@ -30,20 +28,5 @@ namespace SuperChess
         {
             return "B";
         }
-
-        //public override ChessPiece Move()
-        //{
-
-        //    //alternativ metod för att testa drag
-        //    foreach (ChessPiece chessPiece in this.chessPieces)
-        //    {
-        //        if (chessPiece.Move(false))
-        //        {
-        //            return chessPiece;
-        //        }
-        //    }
-
-        //    return null;
-        //}
     }
 }

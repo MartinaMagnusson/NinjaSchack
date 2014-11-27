@@ -11,7 +11,6 @@ namespace SuperChess
         public King(int x, int y, string color)
             : base(x, y, color)
         {
-
         }
         public override string GetChessPieceDescription() //Piece blir en bondeD:\GitHub\NinjaSchack\SuperChess\King.cs
         {
@@ -20,7 +19,6 @@ namespace SuperChess
 
         public override bool Move()
         {
-
             bool movePossible = false;
             Random whichMove = new Random();
 
@@ -95,15 +93,11 @@ namespace SuperChess
 
         public override bool ValidateMove(int x, int y)
         {
-
-            bool move = false;
-
             if (y <= 7 && y >= 0 && x >= 0 && x <= 7)
             {
-                move = true;
+                return true;
             }
-
-            return move; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
+            return false; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
             //TODO:Få rät på denna skiten
         }
     }

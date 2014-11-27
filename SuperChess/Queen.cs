@@ -44,7 +44,7 @@ namespace SuperChess
                         if (this.ValidateMove(this.x - step, this.y))
                         {
                             this.x = this.x - step;
-                            movePossible = true;
+                            movePossible =  true;
                         }
                         break;
                     case 4:
@@ -75,7 +75,7 @@ namespace SuperChess
                         {
                             this.x = this.x + step;
                             this.y = this.y - step;
-                            movePossible = true;
+                           movePossible = true;
                         }
                         break;
                     case 8:
@@ -88,8 +88,7 @@ namespace SuperChess
                         break;
                 }
             }
-
-            return movePossible; //if we are unable to make a move return false
+            return false; //if we are unable to make a move return false
         }
 
         public override bool ValidateMove(int x, int y)

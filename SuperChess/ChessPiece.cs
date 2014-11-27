@@ -11,7 +11,6 @@ namespace SuperChess
         public int x;
         public int y;
         public string Color { get; set; }
-
         public ChessPiece(int x, int y, string color)
         {
             this.x = x;
@@ -37,7 +36,6 @@ namespace SuperChess
             return false;
         }
 
-
         public virtual bool ValidateMove(int x, int y, bool directionUp)
         {
             return true;
@@ -46,7 +44,5 @@ namespace SuperChess
         {
             return true;
         }
-
-
     }
 }

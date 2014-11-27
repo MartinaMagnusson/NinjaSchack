@@ -9,15 +9,14 @@ namespace SuperChess
 {
     class Chessboard
     {
-        List<Player> players;
+      List<Player> players;
         List<ChessPiece> allChessPieces = new List<ChessPiece>();
         public Chessboard() //sätter ut alla piece
         {
-
             players = new List<Player>();
             for (int x = 0; x <= 7; x++)
             {
-               allChessPieces.Add(new Pawn(x, 6, "White"));
+                allChessPieces.Add(new Pawn(x, 6, "White"));
             }
             this.allChessPieces.Add(new King(4, 7, "White"));
             this.allChessPieces.Add(new Queen(3, 7, "White"));
@@ -49,23 +48,25 @@ namespace SuperChess
             this.Draw();
             Console.ReadKey();
             bool running = true;
+            ChessPiece randomBlackPiece;
+            ChessPiece randomWhitePiece;
             while (running)
             {
+                // White player
                 players[0].UpdateMyList(allChessPieces);
-                ChessPiece randomWhitePiece = players[0].chessPieces[new Random().Next(0, players[0].chessPieces.Count)];
+                randomWhitePiece = players[0].chessPieces[new Random().Next(0, players[0].chessPieces.Count)];
                 if (randomWhitePiece != null)
                 {
                     if (players[1] != players[0])
                     {
-                        players[1].Kill(randomWhitePiece.x, randomWhitePiece.y, allChessPieces);
+                       
                     }
                 }
-                else
-                {
-                    //Unable to make a move
-                    //Is the game over?
-                    running = true;
-                }
+                //else                //{
+                //    //Unable to make a move
+                //    //Is the game over?
+                //    running = true;
+                //}
                 if (randomWhitePiece.GetChessPieceDescription() == "P")
                 {
                     randomWhitePiece.Move(true);
@@ -74,16 +75,27 @@ namespace SuperChess
                 {
                     randomWhitePiece.Move();
                 }
+                
                 this.Draw();
-                Thread.Sleep(300);
+                Thread.Sleep(30);
 
+                if (players[0] == null)
+                {
+                    running = false;
+                }
+                //King king = new King();
+                // Black player
                 players[1].UpdateMyList(allChessPieces);
-                ChessPiece randomBlackPiece = players[1].chessPieces[new Random().Next(0, players[1].chessPieces.Count)];
+                randomBlackPiece = players[1].chessPieces[new Random().Next(0, players[1].chessPieces.Count)];
                 if (randomBlackPiece != null)
                 {
                     if (players[0] != players[1])
                     {
                         players[0].Kill(randomBlackPiece.x, randomBlackPiece.y, allChessPieces);
+                        if (players[0].GetDescription() == "W" && randomWhitePiece.GetChessPieceDescription() == "K")
+                        {
+                            running = false;
+                        } 
                     }
                 }
                 if (randomBlackPiece.GetChessPieceDescription() == "P")
@@ -94,11 +106,18 @@ namespace SuperChess
                 {
                     randomBlackPiece.Move();
                 }
-
+                if (players[1].chessPieces.Count == null)
+                {
+                    running = false;
+                    break;
+                }
                 this.Draw();
-                Thread.Sleep(300);
+                Thread.Sleep(30);
+                if (players[1] == null)
+                {
+                    running = false;
+                }
             }
-
             Console.WriteLine("Game over!");
         }
 
@@ -148,7 +167,6 @@ namespace SuperChess
         //    Thread.Sleep(1000);    
         //}
 
-
         public void Draw()//ritar upp spelbrädan 
         {
             Console.Clear();
@@ -184,6 +202,5 @@ namespace SuperChess
             }
             return null;
         }
-
     }
 }

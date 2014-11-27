@@ -46,7 +46,6 @@
     <Compile Include="BlackPlayer.cs" />
     <Compile Include="Chessboard.cs" />
     <Compile Include="ChessPiece.cs" />
-    <Compile Include="King - Copy.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Pawn.cs" />
