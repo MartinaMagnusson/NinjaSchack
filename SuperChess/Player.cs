@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperChess
 {
-    class Player
+    class Player : ChessPiece
     {
         public List<ChessPiece> chessPieces;
 
@@ -18,10 +18,10 @@ namespace SuperChess
         public virtual void UpdateMyList(List<ChessPiece> chessPieces)
         {
         }
-        public virtual string GetDescription()
-        {
-            return "U";
-        }
+        //public virtual ConsoleColor GetDescription()
+        //{
+        //   return ConsoleColor.White;
+        //}
 
         public ChessPiece GetChessPieceAt(int x, int y)
         {

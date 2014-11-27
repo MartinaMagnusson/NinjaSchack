@@ -8,24 +8,24 @@ namespace SuperChess
 {
     class WhitePlayer : Player
     {
+      
         public WhitePlayer(List<ChessPiece> chessPieces)
         {
             UpdateMyList(chessPieces);
         }
-
         public override void UpdateMyList(List<ChessPiece> chessPieces)
         {
             foreach (var piece in chessPieces)
             {
                 if(piece.Color == "White")
                 {
-                    this.chessPieces.Add(piece);
+                    this.chessPieces.Add(piece);                    
                 }
             }
         }
-        public override string GetDescription()
-        {
-            return "W";
-        }
+        //public override ConsoleColor GetDescription()
+        //{
+        //    return ConsoleColor.Red;
+        //}
     }
 }

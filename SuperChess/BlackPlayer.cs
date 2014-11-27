@@ -23,10 +23,10 @@ namespace SuperChess
                 }
             }
         }
-
-        public override string GetDescription()
-        {
-            return "B";
-        }
+ 
+        //public override string GetDescription()
+        //{
+        //    return "B";
+        //}
     }
 }

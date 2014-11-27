@@ -17,12 +17,19 @@ namespace SuperChess
             this.y = y;
             this.Color = color;
         }
+        public ChessPiece()
+        {
+
+        }
 
         public virtual string GetChessPieceDescription()
         {
             return "U";
         }
-
+        public virtual ConsoleColor ChessPieceColor()
+        {
+            return Console.ForegroundColor;
+        }
         public virtual bool Move(bool directionUp)
         {
             return true;

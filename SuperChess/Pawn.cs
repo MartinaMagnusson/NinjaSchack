@@ -12,7 +12,7 @@ namespace SuperChess
             : base(x, y, color)
         {
         }
-        
+
         public override string GetChessPieceDescription() //Piece blir en bonde
         {
             return "P";
@@ -24,20 +24,23 @@ namespace SuperChess
             {
                 if (this.ValidateMove(this.x, this.y - 1, directionUp))
                 {
-                        this.y = this.y - 1;
-                        return true;
-                    }
+                    
+                    this.y = this.y - 1;
+                    return true;
+                }
             }
             else
             {
                 if (this.ValidateMove(this.x, this.y + 1, directionUp))
                 {
+                    
                     this.y = this.y + 1;
                     return true;
                 }
             }
             return false; //if we are unable to make a move return false
-        }
+        }
+
         public override bool ValidateMove(int x, int y, bool directionUp)
         {
             if (directionUp && (y < this.y && y >= 0))
@@ -50,6 +53,5 @@ namespace SuperChess
             }
             return false; //Här måste vi kolla om draget är tillåtet, om det inte är tillåtet returnerar vi false.
         }
-
     }
 }
